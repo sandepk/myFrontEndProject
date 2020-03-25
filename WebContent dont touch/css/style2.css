@@ -1,0 +1,159 @@
+
+/* I am a comment in css*/
+h1 {
+  color: blue;
+  background-color: yellow;
+  border: 1px solid black;
+}
+
+p {
+  color: red;
+}
+li {
+    text-align: left;
+    padding-left: 5px;
+}
+p:nth-of-type(2n) {
+    color: lime;
+  }
+
+span {
+    border: 1px solid black;
+    background-color: lime;
+  }
+@media(max-width : 801px) {
+    body {
+      margin: 0 auto;
+      width: 800px;
+      background-color: azure;
+    }
+}
+
+/* The element with the class "first" is bolded */
+.first {
+    font-weight: bold;
+  }
+  
+  /* All the elements with the class "done" are strike through */
+  .done {
+    text-decoration: line-through;
+  }
+
+  .base-box {
+    background-image: linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.3));
+    padding: 3px 3px 3px 7px;
+  }
+  
+  .important {
+    font-weight: bold;
+  }
+  
+  .editor-note {
+    background-color: #9999ff;
+    border-left: 6px solid #333399;
+  }
+  
+  .warning {
+    background-color: #ff9999;
+    border-left: 6px solid #993333;
+  }
+  #polite {
+    font-family: cursive;
+  }
+  
+  #rude {
+    font-family: Arial, Helvetica, sans-serif;
+    text-transform: uppercase;
+  }
+
+  /* All elements with the attribute "data-vegetable"
+   are given green text */
+[data-vegetable] {
+    color: green;
+  }
+  
+  /* All elements with the attribute "data-vegetable"
+     with the exact value "liquid" are given a golden
+     background color */
+  [data-vegetable="liquid"] {
+    background-color: goldenrod;
+  }
+  
+  /* All elements with the attribute "data-vegetable",
+     containing the value "spicy", even among others,
+     are given a red text color */
+  [data-vegetable~="spicy"] {
+    color: red;
+  }
+
+  /* These styles will style our link
+   in all states */
+a {
+    color: blue;
+    font-weight: bold;
+  }
+  
+  /* We want visited links to be the same color
+     as non visited links */
+  a:visited {
+    color: yellowgreen;
+  }
+  
+  /* We highlight the link when it is
+     hovered (mouse), activated
+     or focused (keyboard) */
+  a:hover,
+  a:active,
+  a:focus {
+    color: darkred;
+    text-decoration: none;
+  }
+
+  table {
+    font: 1em sans-serif;
+    border-collapse: collapse;
+    border-spacing: 0ch;
+  }
+
+  /* All <td>s within a <table> and all <th>s within a <table>
+   Comma is not a combinator, it just allows you to target
+   several selectors with the same CSS ruleset */
+table td, table th {
+    border : 1px solid black;
+    padding: 0.5em 0.5em 0.4em;
+  }
+
+/* All <th>s within <thead>s that are within <table>s */
+table thead th {
+    color: white;
+    background: black;
+  }
+
+/* All <td>s preceded by another <td>,
+   within a <tbody>, within a <table> */
+   table tbody td + td {
+    text-align: center;
+  }
+
+  /* All <td>s that are a last child,
+   within a <tbody>, within a <table> */
+table tbody td:last-child {
+    text-align: right
+  }
+
+/* All <th>s, within a <tfoot>s, within a <table> */
+table tfoot th {
+    text-align: right;
+    border-top-width: 5px;
+    border-left: none;
+    border-bottom: none;
+  }
+
+/* All <td>s preceded by a <th>, within a <table> */
+table th + td {
+    text-align: right;
+    border-top-width: 5px;
+    color: white;
+    background:grey;
+  }
+  

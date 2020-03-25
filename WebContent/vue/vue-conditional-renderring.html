@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="ISO-8859-1">
+    <title>vue-conditional renderring</title>
+    <!-- <link rel="stylesheet" href="..\style.css"> -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style>
+    [v-cloak] {
+        display : none;
+    }
+    </style>
+    <script src="../lib/vue.js"> </script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script> -->
+</head>
+
+<body style="font-family:Arial">
+    <div id="app">
+        <div class="container"> 
+           <!-- <form v-if="!submitted" class="mt-5">-->
+            <form v-show="!submitted" class="mt-5">
+                <div class ="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" v-model="email" class="form-control form-control-lg">
+                </div>
+                <button type="submit" @click.prevent="process" class="btn btn-primary">Submit</button>
+            </form>
+            <!--<h2 v-if="submitted" class="mt-5">thanks for singup {{email}}!</h2>-->
+            <!--<h2 v-else class="mt-5">thanks for singup {{email}}!</h2>-->
+            <h2 v-show="submitted" v-cloak class="mt-5">thanks for singup {{email}}!</h2>
+        </div>
+    </div>
+
+    
+    
+</body>
+<script>
+       var vm =  new Vue({
+            el: '#app',
+            data : {
+                greeting : 'Hello from Vue!',
+                email: 'uvdeepak@outlook.com',
+                submitted: false
+            },
+            methods : {
+                process : function()  {
+                    this.submitted = true;
+                    // alert('You submit '+ this.email);
+                }
+            }
+        });
+</script>
+</html>

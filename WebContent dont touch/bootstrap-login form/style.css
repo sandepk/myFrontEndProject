@@ -1,0 +1,37 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,700');
+
+html, body {
+ 
+  font-family: 'Poppins',sans-serif;
+  background: black;
+}
+form {
+  background: #fff;
+
+}
+.form-container {
+  border-radius: 1.5rem;
+  padding: 30px;
+
+}
+.fa-youtube {
+  color: #bb0000;
+  font-size: 7rem;
+  position: absolute;
+  top : -35%;
+  left: 40%;
+
+}
+
+.padding {
+  padding-top: 5rem;
+}
+
+
+
+
+
+
+
+
+

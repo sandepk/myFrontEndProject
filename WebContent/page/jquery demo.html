@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="ISO-8859-1">
+    <title>jQuery Power</title>
+    <link rel="stylesheet" href="..\style.css">
+    <script src="..\jquery-3.2.1.js"></script>
+    <script src="..\js\common.js">
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#button1').on('click', {
+                firstName: 'deepak',
+                lastName: 'Kumar'
+            }, sayHello);
+
+            function sayHello(event) {
+                alert('Hello' + event.data.firstName + ' ' + event.data.lastName);
+            }
+
+        });
+    </script>
+</head>
+
+<body style="font-family:Arial">
+    <h1> Jquery</h1>
+    <input id="button1" type="button" value="click me" /><br>
+    <a href="../index.html">Back to Home Page</a><br><br>
+</body>
+</html>

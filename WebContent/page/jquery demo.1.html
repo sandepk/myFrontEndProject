@@ -1,0 +1,28 @@
+<html>
+ <head>
+ 
+ </head>
+ <body>
+ <ul>
+ <li>one</li>
+ <li>two</li>
+<li>three</li>
+ <li>four</li>
+ </ul>
+ <script
+src="http://ajax.googleapis.com/ajax/libs/jquery/1.
+7.2/jquery.min.js"></script> 
+ <script>
+ $(function(){
+     var array1 = ['a','b','c'];
+var array2 = ['b','c','d'];
+alert($.merge($.merge([], array1), array2));
+ var listSample = $("li");
+ var firstSelect = listSample.eq(1);
+ var secondSelect = listSample.eq(3);
+ console.log(firstSelect.html() + " and " +
+secondSelect.html());
+ });
+ </script>
+ </body>
+</html>

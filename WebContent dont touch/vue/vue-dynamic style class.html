@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="ISO-8859-1">
+    <title>vue-conditional fomatting with css</title>
+    <!-- <link rel="stylesheet" href="..\style.css"> -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style>
+    [v-cloak] {
+        display : none;
+    }
+    .highlight {
+        border : solid 3px red;
+        color : darkred;
+    }
+    </style>
+    <!--<script src="../lib/vue.js"> </script>-->
+     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script> 
+</head>
+
+<body style="font-family:Arial">
+    <div id="app">
+        <div class="container"> 
+            <div class="card mt-5">
+                <h2 class="card-header"> Users List: </h2>
+                <div class="m3" v-if="numUsers>0">
+                    <p>Showing {{numUsers}} items</p>
+                </div>
+                <table class="table">
+                    <thead class="thead-light">
+                        <th>#</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Address</th>
+                        <th>Remove</th>
+
+                    </thead>
+                    <tbody>
+                          <tr v-for="(user,index) in users" :key="user.id"  :class="{highlight : true}" style="color : green">
+                              <td>{{index+1}}</td>
+                              <td>{{user.name}}</td>
+                              <td>{{user.email}}</td>
+                              <td> 
+                                  <ul v-if="user.address != null"> 
+                                      <li v-for="(value,key) in user.address">
+                                          {{key}}: {{value}}
+                                      </li>
+                                  </ul>
+                              </td>
+                              <td><button @click="remove(index)" class="btn btn-warning">Remove</button></td>
+                          </tr>
+                    </tbody>  
+                </table>
+           </div>
+        </div>
+    </div>
+
+    
+    
+</body>
+<script>
+    var vm =  new Vue({
+        el: '#app',
+        data : {
+            greeting : 'Hello from Vue!',
+            email: '',
+            submitted: false,
+            name : "",
+            users : []
+        },
+        computed : {
+            numUsers : function() {
+                return this.users.length;
+            }
+        },
+        created : function() {
+            this.fetchUsers();
+        },
+        methods : {
+            process : function()  {
+                this.submitted = true;
+                // alert('You submit '+ this.email);
+            },
+            remove : function(index) {
+                this.users.splice(index,1);
+            },
+            getRowStyle : function(user) {
+                if(user.name.startsWith("C")) {
+                    return {
+                        border : "solid 3px red",
+                        color : "red"
+                    }
+                }
+            },
+            fetchUserDetails : function() {
+                fetch('https://jsonplaceholder.typicode.com/users/1')
+                .then(response => response.json())
+                .then(json => {
+                    vm.email = json.email;
+                    vm.name = json.name;
+                    console.log(json);
+                }); 
+            },
+            fetchUsers : function() {
+                fetch('https://jsonplaceholder.typicode.com/users')
+                .then(response => response.json())
+                .then(json => {
+                    vm.users = json.slice(0,7);
+                    console.log(json);
+                }); 
+            }
+            
+        }
+    });
+    
+</script>
+</html>

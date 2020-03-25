@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="ISO-8859-1">
+    <title>vue one</title>
+    <!-- <link rel="stylesheet" href="..\style.css"> -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="../lib/vue.js"> </script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script> -->
+</head>
+
+<body style="font-family:Arial">
+    <div id="app">
+        <div class="container">
+            <form class="mt-5">
+                <div class ="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" v-model="email" class="form-control form-control-lg">
+                </div>
+                <button type="submit" @click.prevent="process" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+        <!-- <h2>{{greeting}}</h2> -->
+    </div>
+
+    
+    
+</body>
+<script>
+       var vm =  new Vue({
+            el: '#app',
+            data : {
+                greeting : 'Hello from Vue!',
+                email: 'uvdeepak@outlook.com'
+            },
+            methods : {
+                process : function()  {
+                    alert('You submit '+ this.email);
+                }
+            }
+        });
+</script>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="ISO-8859-1">
+    <title>vue-load-data-async</title>
+    <!-- <link rel="stylesheet" href="..\style.css"> -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style>
+    [v-cloak] {
+        display : none;
+    }
+    </style>
+    <script src="../lib/vue.js"> </script>
+     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script> 
+</head>
+
+<body style="font-family:Arial">
+    <div id="app">
+        <div class="container"> 
+           <!-- <form v-if="!submitted" class="mt-5">-->
+            <form v-show="!submitted" class="mt-5">
+                <div class ="form-group">
+                    <label for="email">Email</label>
+                    <input type="input" v-model="email" class="form-control form-control-lg">
+                </div>
+                <button type="submit" @click.prevent="process" class="btn btn-primary">Submit</button>
+            </form>
+            <!--<h2 v-if="submitted" class="mt-5">thanks for singup {{email}}!</h2>-->
+            <!--<h2 v-else class="mt-5">thanks for singup {{email}}!</h2>-->
+            <h2 v-show="submitted" v-cloak class="mt-5">thanks for singup {{email}}!</h2>
+        </div>
+    </div>
+
+    
+    
+</body>
+<script>
+    var apiKey = 'QUlwz0ZlxgjUemBLIVAg36hKqJhVPeeL3hXuHHDt';
+    var url = 'https://api.nasa.gov/planetary/apod?api_key='+apiKey;
+    var vm =  new Vue({
+        el: '#app',
+        data : {
+            greeting : 'Hello from Vue!',
+            email: '',
+            submitted: false,
+            name : ""
+        },
+        beforeCreate : function() {
+            console.log('before create call')
+        },
+        beforeUpdate : function() {
+            console.log('before update call')
+        },
+        updated : function() {
+            console.log('updated call')
+        },
+        beforeMount : function() {
+            console.log('beforeMount call')
+        },
+        mounted : function() {
+            console.log('mounted call')
+        },
+        beforeDestroy : function() {
+            alert('beforeDestroy call')
+        },
+        destroyed : function() {
+            alert('destroyed call')
+        },
+        created : function() {
+            this.fetchUserDetails();
+        },
+        methods : {
+            process : function()  {
+                this.submitted = true;
+                // alert('You submit '+ this.email);
+            },
+            fetchUserDetails : function() {
+                fetch('https://jsonplaceholder.typicode.com/users/1')
+                .then(response => response.json())
+                .then(json => {
+                    vm.email = json.email;
+                    vm.name = json.name;
+                    console.log(json);
+                }); 
+            }
+        }
+    });
+    
+</script>
+</html>

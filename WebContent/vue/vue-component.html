@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="ISO-8859-1">
+    <title>vue-component</title>
+    <!-- <link rel="stylesheet" href="..\style.css"> -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style>
+    [v-cloak] {
+        display : none;
+    }
+    </style>
+    <script src="../lib/vue.js"> </script>
+     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script> 
+</head>
+
+<body style="font-family:Arial">
+    <div id="app">
+         
+           <user-form id="2"></user-form>
+        
+    </div>
+
+    
+    
+</body>
+<script>
+
+    Vue.component('user-form', {
+        template : `<div class="container">
+            <form v-if="!submitted" class="mt-5">
+                <div class ="form-group">
+                    <label for="email">Email</label>
+                    <input type="input" v-model="email" class="form-control form-control-lg">
+                </div>
+                <button type="submit" @click.prevent="process" class="btn btn-primary">Submit</button>
+            </form>
+            <h2 v-else class="mt-5">thanks for singup {{name}} : {{email}}!</h2>
+            <slot><h2 class="mt-5">Name is {{name}}!</h2></slot>
+            </div>
+            
+            `,
+        props : ['id'],
+        data : function() {
+            return {
+                greeting : 'Hello from Vue!',
+                email: '',
+                submitted: false,
+                name : ""
+            }
+        },
+        created : function() {
+            this.fetchUserDetails();
+        },
+        methods : {
+            process : function()  {
+                this.submitted = true;
+                // alert('You submit '+ this.email);
+            },
+            fetchUserDetails : function() {
+                var url = 'https://jsonplaceholder.typicode.com/users/';
+                if(this.id)
+                    url += this.id;
+                else
+                    url += 1;
+                var that = this;
+                fetch(url)
+                .then(response => response.json())
+                .then(json => {
+                    that.email = json.email;
+                    that.name = json.name;
+                    console.log(json);
+                }); 
+            }
+        }
+
+    });
+
+    var vm =  new Vue({
+        el: '#app',
+        
+    });
+    
+</script>
+</html>

@@ -1,0 +1,221 @@
+html,
+body {
+    height: 100%;
+    width: 100%;
+    font-family: 'Poppins', sans-serif;
+    color: #222;
+}
+
+
+/* html,
+body {
+    position: relative;
+    min-height: 100%;
+    top: 0px;
+}
+} */
+
+
+img {
+    width: 70px;
+    height: 70px;
+}
+
+img.car-img-top {
+    width: 400px;
+    height: 400px;
+}
+
+.navbar {
+    padding: .8rem;
+}
+
+.navbar-nav li {
+    padding-right: 20px;
+}
+
+.nav-link {
+    font-size: 1.1em !important;
+}
+
+/* .carousel-inner img {width: 1500px;
+height: 715px;
+} */
+.carousel-inner img {
+    width: 100%;
+    height: auto;
+}
+
+.carousel-caption {
+    position: absolute;
+    top: 70%;
+    animation: colorC 3s infinite, transform 2s infinite;
+    /* transform: translateY(-50%); */
+}
+
+@keyframes colorC {
+    0% {
+        bottom: 10px;
+        color: rgb(238, 192, 202);
+        motion-rotation: reverse;
+    }
+
+    50% {
+        bottom: 50px;
+        transform: translateY(20px);
+        color: rgb(58, 53, 55);
+        motion-rotation: reverse;
+    }
+
+    100% {
+        bottom: 10px;
+        transform: rotateZ(20px);
+        color: rgb(148, 150, 142);
+    }
+}
+
+.carousel-caption h1 {
+    font-size: 500%;
+    text-transform: uppercase;
+    text-shadow: 1px 1px 15px #000;
+}
+
+.carousel-caption h3 {
+    font-size: 200%;
+    font-weight: 500;
+    text-shadow: 1px 1px 10px #000;
+    padding-bottom: 1rem;
+
+}
+
+.btn-primary {
+    background-color: #6648b1;
+    border: 1px solid #6648b1;
+}
+
+.btn-primary:hover {
+    background-color: #563d7c;
+    border: 1px solid 563d7c;
+}
+
+a {
+    color: rgba(0, 0, 0, .5);
+    ;
+}
+
+a:hover {
+    text-decoration: none;
+    /* background-color: rgb(184, 80, 97); */
+}
+
+
+a.dropdown-item {
+    display: block;
+    /* width: 100%; */
+    padding: .25rem 1.5rem;
+    clear: both;
+    font-weight: 400;
+    color: #212529;
+    text-align: inherit;
+    white-space: nowrap;
+    background-color: transparent;
+    border: 0;
+}
+
+a.dropdown-footer {
+    margin-left: 20px;
+}
+
+/* form  */
+@keyframes openForm {
+    0% {
+        width: 0px;
+        height: 0px;
+    }
+
+    50% {
+        width: 50%;
+        height: 50%;
+    }
+
+    100% {
+        width: 100%;
+        height: 100%;
+    }
+}
+
+@import url("https://fonts.googleapis.com/css?family=Lato");
+
+
+/* popUp Form  */
+.form-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    /* justify-content: center; */
+    background: #D1DBD8;
+    margin-top: 50px;
+    padding-top: 20px;
+    animation: openForm 5s 1;
+    /* animation-iteration-count: 1; */
+
+}
+
+.form-container input[type=email],
+.form-container input[type=password],
+
+.form-container textarea {
+    width: 100%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    border: none;
+    background: #f1f1f1;
+}
+
+.form-container input[type=email]:hover,
+.form-container input[type=password]:hover,
+.form-container textarea:hover {
+    box-shadow: 2px 2px green;
+}
+
+.form-container .btn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 16px 20px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    margin-bottom: 10px;
+    opacity: 0.8;
+
+}
+
+.open-button {
+    background-color: #555;
+    color: white;
+    padding: 16px 20px;
+    border: none;
+    cursor: pointer;
+    opacity: 0.8;
+    position: relative;
+    bottom: 23px;
+    right: 28px;
+    width: 280px;
+}
+
+button.open-button {
+    margin-top: 30px;
+}
+
+.form-popup {
+    display: none;
+    /* position: fixed; */
+    bottom: 0;
+    right: 15px;
+    border: 3px solid #f1f1f1;
+    z-index: 9;
+}
+
+.form-container .cancel {
+    background-color: red;
+}

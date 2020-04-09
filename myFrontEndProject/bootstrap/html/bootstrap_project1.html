@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Complete Bootstrap 4 Website Layout</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+    <link href="../css/style1.css" rel="stylesheet">
+    <script src="../javascript/bootstrap_project1.js"></script>
+</head>
+
+<body>
+    <!-- navigation  -->
+    <nav class="navbar navbar-expand-md navbar-expand-xs navbar-expand-lg navbar-light bg-light sticky-top">
+        <div class="container-fluid padding">
+            <a class="navbar-brand" href="#">
+                <img src="../logo.png.png">
+            </a>
+            <button class="navbar-toggler btn btn-outline-secondary" type="button" data-toggle="collapse"
+                data-target="#navbarResponse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"> </span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponse">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item ">
+                        <a class="nav-link" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Connect</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Team</a>
+                    </li>
+                    <li class="nav-item dropdown ">
+                        <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="navbarDropdown">
+                            Course
+                        </a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="#">BootStrap</a>
+                            <a class="dropdown-item" href="#">HTML</a>
+                            <a class="dropdown-item" href="#">CSS</a>
+                            <a class="dropdown-item" href="#">JavaScript</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-footer">Good Wishes!
+                        </div>
+                    </li>
+
+                </ul>
+
+            </div>
+        </div>
+    </nav>
+
+    <!--Profile Section -->
+    <div class="container-fluid ">
+        <p class="lead">Welcome to my Profile Section.
+            Please <mark>Click</mark> to know my details.
+        </p>
+        <button class="btn btn-outline-secondary" data-toggle="collapse" data-target="#cardDetail">
+            click Me</button>
+
+        <!-- cards -->
+        <div id="cardDetail" class="collapse">
+            <div class="card" style="width: 400px;">
+                <img class="card-img-top rounded-circle img-thumbnail " style="width:100%;height:400px"
+                    src="../img/sandeep1.jpg" alt="sandeep">
+                <div class="card-body">
+                    <h4 class="card-title">Sandeep Gupta</h4>
+                    <p class="card-text">Sandeep is Software Developer graduated from IIT kanpur.</p>
+                    <button class="btn btn-success " data-toggle="collapse" data-target="#details">Profile</button>
+                    <div class="container container-fluid collapse" id="details">
+                        <div class="jumbotron">
+                            <p><strong>Sandeep</strong> is a bright student ,dedicated to his work & always ready to
+                                learn
+                                new things .<br>He
+                                is always ready to posess innovative ideas.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+
+
+
+    <!-- carousel for image slider  -->
+    <!-- indicators  -->
+    <div id="slides" class="carousel slide" data-ride="carousel">
+        <ul class="carousel-indicators">
+            <li data-target="#slides" data-slide-to="0" class="active"></li>
+            <li data-target="#slides" data-slide-to="1"></li>
+            <li data-target="#slides" data-slide-to="2"></li>
+        </ul>
+        <!-- slide show  -->
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="../img/slide1.jpg" class="img-responsive img-thumbnail">
+                <div class="carousel-caption">
+                    <h1 class="display-2">Happiness!!</h1>
+                    <h3>Journey</h3>
+
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="../img/slide3.jpg" class="img-responsive img-thumbnail">
+            </div>
+            <div class="carousel-item">
+                <img src="../img/slide4.jpg" class="img-responsive img-thumbnail">
+            </div>
+        </div>
+
+        <!-- left and right controls  -->
+        <a class="carousel-control-prev" href="#slides" data-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+        </a>
+        <a class="carousel-control-next" href="#slides" data-slide="next">
+            <span class="carousel-control-next-icon"></span>
+        </a>
+    </div>
+
+
+
+
+
+    <!-- popup form  -->
+    <button class="open-button " style="justify-content: center;" onclick="openForm()" data-toggle="collapse"
+        data-target="#formCSS">
+        Open Form</button>
+    <div class="container collapse" id="formCSS">
+        <div class="form-popup" id="myForm">
+            <div class="jumbotron">
+                <form action="" class="form-container">
+
+                    <label for="email"><b style="padding-left: 15px;">Email:</b></label>
+                    <input type="email" name="email" placeholder="Enter email" required>
+                    <label for="psw"><b style="padding-left: 15px;">Password:</b></label>
+                    <input type="password" class="input-group" name="psw" placeholder="Enter Password" value=""
+                        required>
+                    <label for="msg"><b style="padding-left: 15px;">Message:</b></label>
+                    <textarea name="" id="" cols="30" rows="10" name="msg" placeholder="Message"></textarea>
+                    <button type="submit" class="btn">Login</button>
+                    <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+</body>
